@@ -1,10 +1,7 @@
 use std::str::FromStr;
 use std::env;
-
-// TODO: add documentation
-
 fn main() {
-    let mut numbers = Vec::new();
+    let mut numbers: Vec<u64> = Vec::new();
 
     for arg in env::args().skip(1) {
         numbers.push(u64::from_str(&arg)
@@ -16,7 +13,7 @@ fn main() {
         std::process::exit(1);
     }
 
-    let mut d = numbers[0];
+    let mut d: u64 = numbers[0];
     for m in &numbers[1..] {
         d = gcd(d, *m);
     }
